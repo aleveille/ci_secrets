@@ -87,7 +87,7 @@ def _scan_string(line, plugins, commit_sha):
 	logger.debug("LINE: "+line)
 	finding_count = 0
 	for plugin in plugins:
-		results = plugin.analyze_string(line,0,'does not matter')
+		results = plugin.analyze_line(line,0,'does not matter')
 		for result in results:
 			print("{type} ({hash}) at commit {commit}".format(type=result.type,hash=result.secret_hash,commit=commit_sha))
 			finding_count += 1
